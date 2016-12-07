@@ -1,0 +1,116 @@
+# SwiftAutoEdit README
+
+SwiftAutoEdit is a quick-n-dirty Swift micro-editor that enables
+SwiftAutomation users to write and run simple Swift-based "scripts".
+
+## Features
+
+* syntax highlighting
+
+* application dictionary (SDEF file) viewer
+
+* AppleScript to Swift command translator
+
+
+## Requirements
+
+* SourceKitten (https://github.com/jpsim/SourceKitten)
+
+* SwiftAutomation (https://bitbucket.org/hhas/swiftae)
+
+For detailed installation instructions, see the above projects' own 
+documentation. Precis:
+
+To install SourceKitten:
+
+  git clone https://github.com/jpsim/SourceKitten.git 
+  cd SourceKitten
+  sudo make install
+
+To install SwiftAutomation:
+
+  git clone https://bitbucket.org/hhas/swiftae.git
+
+Build the SwiftAutomation and MacOSGlues frameworks using the
+project's Release scheme, then create symlinks to the built frameworks
+in /Library/Frameworks as follows:
+
+  cd /Library/Frameworks 
+  sudo ln -s /PATH/TO/Build/Products/Release/SwiftAutomation.framework 
+  sudo ln -s /PATH/TO/Build/Products/Release/MacOSGlues.framework
+
+
+## Caveats
+
+This code is a quick-n-dirty hack and so fricking ugly even the dogcow
+wouldn't lick it. Therefore, it goes without saying: caveat emptor,
+E&OE, no warranties given. If it deletes your shiny new Swift 3.1 and
+installs COBOL 1.0 in its place, you're completely on your own.
+
+Also:
+
+* The dictionary viewer relies on non-public OSAKit APIs. There isn't
+  yet an option to display a dictionary by selecting its application
+  directly; for now, use File>Open to select an `.sdef` file already
+  created by SwiftAutomation's `aeglue` tool. (Tip: The MacOSGlue 
+  framework bundle's Resources folder contains pre-generated SDEF 
+  files for each of its application glues.)
+
+* The command translator may crash or display
+  less-than-optimal/incorrect information, depending on how many bugs
+  have yet to be squished in SwiftAutomation.
+
+* The Swift code editor… bless.
+
+* The immediate goal is to provide a rudimentary Script Editor-like
+  app that new SwiftAutomation users can use to work through the
+  tutorial chapter and write simple automation "scripts" using Swift.
+
+
+## TO DO
+
+* finish hooking up OSADictionaryView
+
+* integrated glue framework generation + installation (using aeglue);
+  this might be provided via File menu and/or as "create glue" option 
+  on dictionary viewer
+
+* File>Open Dictionary… menu option that allows user to display an
+  app's' dictionary by choosing the application itself (see also the
+  preceding TODO)
+
+* integrate SourceKitten framework for better code formatting
+  performance and other SourceKit features, e.g. live code checks
+  (constantly re-running running sourcekitten subprocess is heinously
+  sluggish and not scalable)
+
+* option for automatically including "#!..." first line and setting
+  executable flag when saving "scripts", allowing them to be run
+  directly from Terminal
+
+* improve display of script stdout/stderr/exit messages
+
+* implement SwiftAutoEdit and SwiftAutomation documentation in 
+  Help menu
+
+* fix Script menu's Enabled bindings
+
+* burn it with fire
+
+* total rewrite
+
+* app icon
+
+* better name
+
+
+## Acknowledgements, Licensing, etc
+
+Some code taken from <https://github.com/jpsim/SwiftEdit>, 
+which in turn is a fork of <https://github.com/sjhorn/SwiftEdit>,
+which in turn requires release under the following CC license:
+<http://creativecommons.org/licenses/by-sa/3.0>. Due credit to
+the original authors.
+
+HT to @nebelch for OSADictionary* incantations.
+
