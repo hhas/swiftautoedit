@@ -12,6 +12,8 @@
 
 // TO DO: how practical to embed sourcekitten executable? (or just leave that as external dependency until SourceKitten framework can be embedded?)
 
+// TO DO: prefs option for specifying default imports (e.g. Cocoa, SwiftAutomation, MacOSGlues) to include in all new documents? (or a 'new -> from template' menu option?); as with '#!...' line, these might be hidden by default (with option to toggle their visibility) to reduce amount of boilerplate
+
 import Cocoa
 
 @NSApplicationMain

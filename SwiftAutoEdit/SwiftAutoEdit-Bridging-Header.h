@@ -5,4 +5,7 @@
 
 #import "OSADictionary.h"
 #import "OSADictionaryController.h"
+#import "OSADictionaryView.h"
+
+
 

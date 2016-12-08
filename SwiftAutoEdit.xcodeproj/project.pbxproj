@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F05090E1DF94EE500555737 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F05090D1DF94EE500555737 /* WebKit.framework */; };
 		4F0FD45E1DF5AE5F00F306D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0FD45D1DF5AE5F00F306D3 /* AppDelegate.swift */; };
 		4F0FD4601DF5AE5F00F306D3 /* SwiftDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0FD45F1DF5AE5F00F306D3 /* SwiftDocument.swift */; };
 		4F0FD4631DF5AE5F00F306D3 /* SwiftDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F0FD4611DF5AE5F00F306D3 /* SwiftDocument.xib */; };
@@ -58,6 +59,8 @@
 
 /* Begin PBXFileReference section */
 		4F05090B1DF8AA7900555737 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		4F05090C1DF9380300555737 /* OSADictionaryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSADictionaryView.h; sourceTree = "<group>"; };
+		4F05090D1DF94EE500555737 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		4F0FD45A1DF5AE5F00F306D3 /* SwiftAutoEdit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftAutoEdit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F0FD45D1DF5AE5F00F306D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F0FD45F1DF5AE5F00F306D3 /* SwiftDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDocument.swift; sourceTree = "<group>"; };
@@ -89,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F05090E1DF94EE500555737 /* WebKit.framework in Frameworks */,
 				4F698E5B1DF78CF90088A726 /* SwiftAutomation.framework in Frameworks */,
 				4F0FD4781DF6136D00F306D3 /* OSAKit.framework in Frameworks */,
 			);
@@ -134,6 +138,7 @@
 		4F0FD4761DF6136D00F306D3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4F05090D1DF94EE500555737 /* WebKit.framework */,
 				4F0FD4771DF6136D00F306D3 /* OSAKit.framework */,
 			);
 			name = Frameworks;
@@ -183,6 +188,7 @@
 				4F0FD4741DF6135400F306D3 /* DictionaryDocument.swift */,
 				4F698BAF1DF789EC0088A726 /* OSADictionary.h */,
 				4F0FD47C1DF6183000F306D3 /* OSADictionaryController.h */,
+				4F05090C1DF9380300555737 /* OSADictionaryView.h */,
 			);
 			name = dictionary;
 			sourceTree = "<group>";

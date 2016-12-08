@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "6FE287DCD73FA60A5A9FB42AE1F2B9FECD96219C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "19A9F3D17035808DB596C71CDB118D270ABB950B" : 9223372036854775807,
+    "6FE287DCD73FA60A5A9FB42AE1F2B9FECD96219C" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "BA0D4460-AD0E-480F-842E-37BAC408A65C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "19A9F3D17035808DB596C71CDB118D270ABB950B" : "SwiftAE\/",
+    "6FE287DCD73FA60A5A9FB42AE1F2B9FECD96219C" : "SwiftAutoEdit\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "SwiftAutoEdit",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "SwiftAutoEdit.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "bitbucket.org:hhas\/swiftae.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "19A9F3D17035808DB596C71CDB118D270ABB950B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/hhas\/swiftautoedit",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6FE287DCD73FA60A5A9FB42AE1F2B9FECD96219C"
+    }
+  ]
+}

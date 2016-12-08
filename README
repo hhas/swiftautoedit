@@ -69,8 +69,6 @@ Also:
 
 ## TO DO
 
-* finish hooking up OSADictionaryView
-
 * integrated glue framework generation + installation (using aeglue);
   this might be provided via File menu and/or as "create glue" option 
   on dictionary viewer
@@ -109,8 +107,10 @@ Also:
 Some code taken from <https://github.com/jpsim/SwiftEdit>, 
 which in turn is a fork of <https://github.com/sjhorn/SwiftEdit>,
 which in turn requires release under the following CC license:
-<http://creativecommons.org/licenses/by-sa/3.0>. Due credit to
-the original authors.
+<http://creativecommons.org/licenses/by-sa/3.0>.
 
-HT to @nebelch for OSADictionary* incantations.
+Many thanks to JP Simard and Scott Horn for the SwiftEdit leg-up on
+SwiftDocument view, and to Chris Nebel for the voodoo incantations
+required to bring OSADictionaryView to life.
+
 
