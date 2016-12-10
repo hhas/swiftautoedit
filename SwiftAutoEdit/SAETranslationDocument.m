@@ -30,15 +30,13 @@
     languageInstance = [[SAELanguageInstance alloc] initWithLanguage: [OSALanguage languageForName: @"AppleScript"]];
     formatter = [[SAEEventSniffer alloc] initWithDocument: self];
     [languageInstance setEventSniffer: formatter];
-
 }
 
 
 
+// TO DO: read+write
 
-- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
-    return YES;
-}
+
 
 - (IBAction)runAppleScript:(id)sender {
     [self clearView:self.outputView];
@@ -55,6 +53,8 @@
     [self writeToView: self.outputView isReply: YES literalResult: scriptResult.string error: error desc: nil];
 }
 
+
+// TO DO: should AS and Swift syntaxes be logged side by side for easier comparison?
 
 -(void)logAppleEvent:(NSAppleEventDescriptor *)desc {
     NSError *error = nil;

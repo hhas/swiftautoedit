@@ -4,6 +4,10 @@
 //
 //
 
+// TO DO: does anyone ever use the collapsable list view in bottom-left pane? if not, can/should it be taken out?
+
+// TO DO: window doesn't currently provide buttons for switching to containment/inheritance views (TBH, both these views are very buggy and often show incomplete/incorrect relationships; would be best to fix those bugs first)
+
 import Cocoa
 import OSAKit
 

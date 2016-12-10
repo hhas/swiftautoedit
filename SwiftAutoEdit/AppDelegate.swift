@@ -19,7 +19,18 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
+    let automationFrameworkPath = "/Library/Frameworks/SwiftAutomation.framework"
+    
+    var automationFramework: Bundle { // used to locate current installed aeglue + SA docs, or fall back to embedded version if not found
+        if let bundle = Bundle(path: self.automationFrameworkPath) {
+            return bundle
+        } else {
+            return Bundle(url: Bundle.main.url(forResource: "SwiftAutomation",
+                                               withExtension: "framework", subdirectory: Bundle.main.privateFrameworksPath)!)!
+        }
+    }
+    
+    var aeglueURL: URL { return self.automationFramework.url(forResource: "aeglue", withExtension: "", subdirectory: "bin")! }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         UserDefaults.standard.register(defaults: ["SendAppleEvents":false, "UseSDEFTerminology":false]) // TO DO: if/when OS's AETE-to-SDEF translator can guarantee 100% translations, the UseSDEFTerminology option can be deleted; until then, paranoia is pragmatism
@@ -27,7 +38,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationWillTerminate(_ aNotification: Notification) {
     }
-
     
     @IBAction func openTranslationDocument(_ sender: Any) {
         let controller = NSDocumentController.shared()
@@ -38,11 +48,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func openHelp(_ sender: Any) {
-        print("TO DO: open editor help")
+        NSWorkspace.shared().open(Bundle.main.url(forResource: "index", withExtension: "html", subdirectory: "doc")!) // TO DO: which is better: open in App help or user's default browser?
     }
 
     @IBAction func openAutomationHelp(_ sender: Any) {
-        print("TO DO: open installed/embedded SA documentation")
+        guard let docURL = self.automationFramework.url(forResource: "index", withExtension: "html", subdirectory: "doc") else {
+            fatalError("Older installed SwiftAutomation framework doesn't contain Resources/doc. Please open SwiftAutomation project directly in Xcode, pull latest changes, and rebuild Release.")
+        }
+        NSWorkspace.shared().open(docURL) // TO DO: which is better: open in App help or user's default browser?
     }
 
 }

@@ -33,7 +33,8 @@ To install SwiftAutomation:
 
 Build the SwiftAutomation and MacOSGlues frameworks using the
 project's Release scheme, then create symlinks to the built frameworks
-in /Library/Frameworks as follows:
+in /Library/Frameworks (replace `/PATH/TO` with the path to the actual
+build folder):
 
   cd /Library/Frameworks 
   sudo ln -s /PATH/TO/Build/Products/Release/SwiftAutomation.framework 
@@ -42,10 +43,8 @@ in /Library/Frameworks as follows:
 
 ## Caveats
 
-This code is a quick-n-dirty hack and so fricking ugly even the dogcow
-wouldn't lick it. Therefore, it goes without saying: caveat emptor,
-E&OE, no warranties given. If it deletes your shiny new Swift 3.1 and
-installs COBOL 1.0 in its place, you're completely on your own.
+This code is a quick-n-filthy hack, therefore, use at own risk, E&OE,
+no warranties given.
 
 Also:
 
@@ -56,11 +55,13 @@ Also:
   framework bundle's Resources folder contains pre-generated SDEF 
   files for each of its application glues.)
 
-* The command translator may crash or display
-  less-than-optimal/incorrect information, depending on how many bugs
-  have yet to be squished in SwiftAutomation.
+* The command translator may crash or display less-than-optimal/
+  incorrect information, depending on how many bugs have yet to be
+  squished in SwiftAutomation.
 
-* The Swift code editor… bless.
+* The Swift code editor… bless. Of all the hacks, it is the quickest
+  and dirtiest. (If anyone fancies a crack at improving it, please
+  fork away and have at it.)
 
 * The immediate goal is to provide a rudimentary Script Editor-like
   app that new SwiftAutomation users can use to work through the

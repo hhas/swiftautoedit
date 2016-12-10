@@ -17,6 +17,11 @@
 		4F0FD4731DF6133C00F306D3 /* DictionaryDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F0FD4721DF6133C00F306D3 /* DictionaryDocument.xib */; };
 		4F0FD4751DF6135400F306D3 /* DictionaryDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0FD4741DF6135400F306D3 /* DictionaryDocument.swift */; };
 		4F0FD4781DF6136D00F306D3 /* OSAKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F0FD4771DF6136D00F306D3 /* OSAKit.framework */; };
+		4F59620C1DFC5CB800F1FF26 /* index.html in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4F6309521DFC1F930089ADDB /* index.html */; };
+		4F59620D1DFC5CB800F1FF26 /* full.css in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4F6309581DFC1FC80089ADDB /* full.css */; };
+		4F6309261DFC168E0089ADDB /* SwiftAutomation.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4F698E521DF78CEA0088A726 /* SwiftAutomation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4F6309271DFC168E0089ADDB /* MacOSGlues.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4F698E5A1DF78CEA0088A726 /* MacOSGlues.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4F6309591DFC1FC80089ADDB /* full.css in Resources */ = {isa = PBXBuildFile; fileRef = 4F6309581DFC1FC80089ADDB /* full.css */; };
 		4F698BAE1DF72F590088A726 /* SwiftDocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F698BAD1DF72F590088A726 /* SwiftDocumentView.swift */; };
 		4F698E5B1DF78CF90088A726 /* SwiftAutomation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F698E521DF78CEA0088A726 /* SwiftAutomation.framework */; };
 		4F698E641DF78E740088A726 /* TranslationDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4F698E621DF78E740088A726 /* TranslationDocument.xib */; };
@@ -57,6 +62,31 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4F5962071DFC5CAC00F1FF26 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = doc;
+			dstSubfolderSpec = 7;
+			files = (
+				4F59620C1DFC5CB800F1FF26 /* index.html in CopyFiles */,
+				4F59620D1DFC5CB800F1FF26 /* full.css in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F6309251DFC166E0089ADDB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4F6309261DFC168E0089ADDB /* SwiftAutomation.framework in CopyFiles */,
+				4F6309271DFC168E0089ADDB /* MacOSGlues.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		4F05090B1DF8AA7900555737 /* README */ = {isa = PBXFileReference; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		4F05090C1DF9380300555737 /* OSADictionaryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSADictionaryView.h; sourceTree = "<group>"; };
@@ -74,6 +104,8 @@
 		4F0FD4771DF6136D00F306D3 /* OSAKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OSAKit.framework; path = System/Library/Frameworks/OSAKit.framework; sourceTree = SDKROOT; };
 		4F0FD47B1DF6183000F306D3 /* SwiftAutoEdit-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftAutoEdit-Bridging-Header.h"; sourceTree = "<group>"; };
 		4F0FD47C1DF6183000F306D3 /* OSADictionaryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSADictionaryController.h; sourceTree = "<group>"; };
+		4F6309521DFC1F930089ADDB /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = index.html; path = doc/index.html; sourceTree = "<group>"; };
+		4F6309581DFC1FC80089ADDB /* full.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = full.css; path = doc/full.css; sourceTree = "<group>"; };
 		4F698BAD1DF72F590088A726 /* SwiftDocumentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftDocumentView.swift; sourceTree = "<group>"; };
 		4F698BAF1DF789EC0088A726 /* OSADictionary.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OSADictionary.h; sourceTree = "<group>"; };
 		4F698E491DF78CEA0088A726 /* SwiftAE.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftAE.xcodeproj; path = ../SwiftAE/SwiftAE.xcodeproj; sourceTree = "<group>"; };
@@ -107,8 +139,8 @@
 				4F05090B1DF8AA7900555737 /* README */,
 				4F698E491DF78CEA0088A726 /* SwiftAE.xcodeproj */,
 				4F0FD45C1DF5AE5F00F306D3 /* SwiftAutoEdit */,
-				4F0FD45B1DF5AE5F00F306D3 /* Products */,
 				4F0FD4761DF6136D00F306D3 /* Frameworks */,
+				4F0FD45B1DF5AE5F00F306D3 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,6 +163,7 @@
 				4F0FD47B1DF6183000F306D3 /* SwiftAutoEdit-Bridging-Header.h */,
 				4F0FD4641DF5AE5F00F306D3 /* Assets.xcassets */,
 				4F0FD4691DF5AE5F00F306D3 /* Info.plist */,
+				4F6309571DFC1F970089ADDB /* doc */,
 			);
 			path = SwiftAutoEdit;
 			sourceTree = "<group>";
@@ -142,6 +175,15 @@
 				4F0FD4771DF6136D00F306D3 /* OSAKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4F6309571DFC1F970089ADDB /* doc */ = {
+			isa = PBXGroup;
+			children = (
+				4F6309521DFC1F930089ADDB /* index.html */,
+				4F6309581DFC1FC80089ADDB /* full.css */,
+			);
+			name = doc;
 			sourceTree = "<group>";
 		};
 		4F698E4A1DF78CEA0088A726 /* Products */ = {
@@ -203,6 +245,8 @@
 				4F0FD4561DF5AE5F00F306D3 /* Sources */,
 				4F0FD4571DF5AE5F00F306D3 /* Frameworks */,
 				4F0FD4581DF5AE5F00F306D3 /* Resources */,
+				4F6309251DFC166E0089ADDB /* CopyFiles */,
+				4F5962071DFC5CAC00F1FF26 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -291,6 +335,7 @@
 			files = (
 				4F0FD4651DF5AE5F00F306D3 /* Assets.xcassets in Resources */,
 				4F698E641DF78E740088A726 /* TranslationDocument.xib in Resources */,
+				4F6309591DFC1FC80089ADDB /* full.css in Resources */,
 				4F0FD4731DF6133C00F306D3 /* DictionaryDocument.xib in Resources */,
 				4F0FD4631DF5AE5F00F306D3 /* SwiftDocument.xib in Resources */,
 				4F0FD4681DF5AE5F00F306D3 /* MainMenu.xib in Resources */,

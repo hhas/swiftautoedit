@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <title>SwiftAutoEdit</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <style type="text/css" media="all"><!--@import url(full.css);--></style>
+    </head>
+    <body>
+        <div id="wrap">
+            <div id="main">
+                <h1>SwiftAutoEdit</h1>
+
+<h2>About</h2>
+
+<p>A quick-n-dirty Swift micro-editor for <a href="https://hhas.bitbucket.io">SwiftAutomation</a> users.</p>
+
+
+<h2>Prerequisites</h2>
+
+<p>The following apps and frameworks must be downloaded and installed before using SwiftAutoEdit:</p>
+
+<ol>
+<li><a href="https://developer.apple.com/xcode">XCode 8</a> – required to build frameworks and to run Swift "scripts"</li>
+<li><a href="https://github.com/jpsim/SourceKitten">SourceKitten</a> – provides Swift syntax highlighting via SourceKit</li>
+<li><a href="https://bitbucket.org/hhas/swiftae">SwiftAutomation</a> – enables Swift to control "AppleScriptable" macOS applications directly</li>
+</ol>
+
+<p>Please refer to each project's own instructions for downloading and performing a standard installation.</p>
+
+<p>To help get you started, the SwiftAutomation project also builds a MacOSGlues framework containing both Swift glue files and application documentation files for various Apple applications included in macOS as standard.</p>
+
+
+<h2>Code editor</h2>
+
+<p>Choose File ➝ New Script (Cmd+N) to create a new Swift "script" document. The top pane provides basic Swift code editing with syntax highlighting. Choose Script ➝ Run (Cmd+Return) to compile and run the script in a <code>/usr/bin/swift</code> subprocess. The bottom pane displays all compilation and runtime messages (stdout and stderr) followed by exit status when done.</p>
+
+<p>For convenience, new documents include <code>import</code> for SwiftAutomation and MacOSGlues. When saving a <code>.swift</code> file for running directly in Terminal, insert an appropriate <code>#!</code> as the first line, e.g.:</p>
+
+<pre><code>#!/usr/bin/swift -target x86_64-apple-macosx10.12 -F /Library/Frameworks</code></pre>
+
+
+<h2>Dictionary viewer</h2>
+
+<p>SwiftAutomation's <code>aeglue</code> generates <code>.swift</code> glue files and matching <code>.sdef</code> documentation files. Theses SDEF files are similar to those displayed by Script Editor's dictionary viewer, except that the original AppleScript-style keywords are replaced by Swift identifiers as used in the glue files. Choose File ➝ Open to open an application glue's <code>.sdef</code> file in SwiftAutoEdit.</p>
+
+
+<h2>Command translator</h2>
+
+<p>SwiftAutoEdit's command translator provides new SwiftAutomation users with valuable assistance when converting a working AppleScript command to its equivalent Swift syntax.</p>
+
+<p>Choose File ➝ New Translator (Cmd+Shift+N) to create a new AppleScript-to-Swift command translation window. To convert an application command from AppleScript to SwiftAutomation syntax, type the AppleScript command into the top pane and click Run (Cmd+Return). Any Apple events sent by the AppleScript are logged in the bottom pane using Swift syntax.</p>
+
+<p>If the Send Apple Events checkbox is enabled, the Apple event will be dispatched to the target application as normal and the return value, if any, displayed in the middle and bottom middle panes in AppleScript and Swift syntax respectively. Uncheck the Send Apple Events checkbox to translate potentially destructive commands (e.g. <code>delete</code>) without affecting the target application.</p>
+
+<p>For maximum "quirk-for-quirk" compatibility, SwiftAutoEdit translators (and <code>aeglue</code>) normally retrieve an application's terminology data in AETE format by sending it a "get application terminology" (<code>ascrgdte</code>) Apple event. This works with the vast majority of scriptable macOS applications; however, a few older applications (e.g. Finder) may contain bugs that cause incomplete or incorrect AETE data to be returned. When dealing with such applications, enable the Use SDEF Terminology option (<code>-S</code> in <code>aeglue</code>) to retrieve the application's terminology in SDEF format instead. (Be aware that SDEF data retrieved from older applications can contain errors and omissions too.)</p>
+
+
+<h2>Source, Acknowledgements, Caveats</h2>
+
+<p>SwiftAutoEdit is a work in progress. Anyone wishing to inspect or improve its (very hacky) Xcode project is welcome to download/clone <a href="https://bitbucket.org/hhas/swiftautoedit">its repository from Bitbucket</a>.</p>
+
+<p>Some code taken from JP Simard's <a href="https://github.com/jpsim/SwiftEdit">SwiftEdit</a> repository, which in turn is a fork of Scott Horn's <a href="https://github.com/sjhorn/SwiftEdit">SwiftEdit</a> repository, which in turn requires release under the Creative Commons <a href="https://creativecommons.org/licenses/by-sa/3.0">Attribution-ShareAlike 3.0 Unported</a> license.</p>
+
+<p>Many thanks to JP Simard and Scott Horn for their Swift editor code, and to Chris Nebel for the voodoo incantations required to bring the dictionary viewer to life.</p>
+
+<p>This software is provided as-is. No warranties given. E&OE. Use at own risk.</p>
+
+
+            </div>
+        </div>
+        <div id="footer"><div class="navbar">&nbsp;</div></div>
+    </body>
+</html>

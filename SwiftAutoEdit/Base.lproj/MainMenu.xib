@@ -63,21 +63,15 @@
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="File" id="bib-Uj-vzu">
                         <items>
-                            <menuItem title="New" id="a95-0c-qE1">
-                                <menu key="submenu" title="New" id="IYL-lQ-S9J">
-                                    <items>
-                                        <menuItem title="Swift Script" keyEquivalent="n" id="Was-JA-tGl">
-                                            <connections>
-                                                <action selector="newDocument:" target="-1" id="4Si-XN-c54"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Command Translator" keyEquivalent="N" id="6tf-9z-b0s">
-                                            <connections>
-                                                <action selector="openTranslationDocument:" target="-1" id="cPQ-jz-gS5"/>
-                                            </connections>
-                                        </menuItem>
-                                    </items>
-                                </menu>
+                            <menuItem title="New Script" keyEquivalent="n" id="Rid-Ac-oKh">
+                                <connections>
+                                    <action selector="newDocument:" target="-1" id="ZbL-lJ-ohv"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="New Translator" keyEquivalent="N" id="7Ws-lo-y8r">
+                                <connections>
+                                    <action selector="openTranslationDocument:" target="-1" id="dqB-HZ-6YN"/>
+                                </connections>
                             </menuItem>
                             <menuItem title="Open…" keyEquivalent="o" id="IAo-SY-fd9">
                                 <connections>

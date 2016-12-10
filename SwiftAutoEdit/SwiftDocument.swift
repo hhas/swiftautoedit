@@ -4,9 +4,9 @@
 //
 //
 
-// TO DO: Script menu needs to be enabled only when a SwiftDocument window is frontmost
+// TO DO: 'Script' menu should be enabled only when a SwiftDocument window is frontmost
 
-// TO DO: 
+// TO DO: how best to insert default import statements when creating new scripts?
 
 
 import Cocoa
@@ -17,27 +17,22 @@ class SwiftDocument: NSDocument {
     @IBOutlet var codeScrollView: NSScrollView!
     @IBOutlet var resultView: NSTextView!
     
-    var syntaxHighlighter: SwiftSyntaxHighlighter!
+    let standardArguments = ["-target", "x86_64-apple-macosx10.12", "-F", "/Library/Frameworks", "-Onone"] // TO DO: what about $HOME/Library/Frameworks? (presumably any shell variable expansion needs to be done before passing args to Process/NSUserUnixTask; also, how will that work if [optionally] inserting generated #! into script file when saving)
     
     // grotty bindings
     
-    dynamic var code: NSString = ""
+    dynamic var code: NSString = "import SwiftAutomation\nimport MacOSGlues\n\n" // TO DO: temporary; how best to set default imports for new docs?
     dynamic var result: NSString = "" // TO DO: would be better as an array of {time, kind (.stdout/.stderr/.exit), message}, allowing result view to distinguish output from errors
 
-    
-   
-    
     dynamic var scriptTask: Process? // TO DO: need to bind Run/Cancel menu items' Enabled to this
-    
-    
-
-    override init() {
-        super.init()
-        // Add your subclass-specific initialization here.
-    }
     
     override func windowControllerDidLoadNib(_ windowController: NSWindowController) {
         self.codeView.setup(self.codeScrollView) // hack
+        if let window = windowController.window {
+            // TO DO: need to check why this isn't working (representedFilename is always "", although the file name displays in window's titlebar okay)
+            window.setFrameAutosaveName(window.representedFilename)
+            window.setFrameUsingName(window.representedFilename)
+        }
     }
 
     override class func autosavesInPlace() -> Bool {
@@ -45,13 +40,11 @@ class SwiftDocument: NSDocument {
     }
 
     override var windowNibName: String? {
-        // Returns the nib file name of the document
-        // If you need to use a subclass of NSWindowController or if your document supports multiple NSWindowControllers, you should remove this property and override -makeWindowControllers instead.
         return "SwiftDocument"
     }
 
     override func data(ofType typeName: String) throws -> Data {
-        // TO DO: include "#!/usr/bin/swift -target x86_64-apple-macosx10.12 -F /Library/Frameworks" at start of script (or restore original "#!..." if it had one?)
+        // TO DO: implement option to insert "#!/usr/bin/swift -target x86_64-apple-macosx10.12 -F /Library/Frameworks ..." at start of script (or restore original "#!..." if it had one?)
         guard let data = (self.code as String).data(using: .utf8) else {
             throw NSError(domain: NSOSStatusErrorDomain, code: 1, userInfo: [NSLocalizedDescriptionKey: "Can't write."])
         }
@@ -62,7 +55,7 @@ class SwiftDocument: NSDocument {
         guard let source = String(data: data, encoding: .utf8) else {
             throw NSError(domain: NSOSStatusErrorDomain, code: 1, userInfo: [NSLocalizedDescriptionKey: "Can't read."])
         }
-        // TO DO: remove "#!..." line from start of script, if found
+        // TO DO: remove "#!..." line from start of script, if found? (note: SAE ignores any existing #! when running script); see also above TODO
         self.code = source as NSString
     }
     
@@ -95,9 +88,9 @@ class SwiftDocument: NSDocument {
         try! (self.code as String).write(to: tmp, atomically: true, encoding: .utf8)
         let task = Process() // TO DO: better to use NSUserUnixTask
         task.launchPath = "/usr/bin/swift"
-        task.arguments = ["-target", "x86_64-apple-macosx10.12", "-F", "/Library/Frameworks", "-Onone", tmp.path] // TO DO: include "$HOME/Library/Frameworks" too (check UserDefaults as it probably has domain for getting these paths)
+        task.arguments = self.standardArguments + [tmp.path] // TO DO: include "$HOME/Library/Frameworks" too (check UserDefaults as it probably has domain for getting these paths)
         // TO DO: what about environment? (in particular, encoding)
-        // task.currentDirectoryPath // if not set, use current // TO DO: use $HOME?
+        // task.currentDirectoryPath // if not set, use current // TO DO: use $HOME? (should probably use the directory where the script file is saved, if any)
         
         let outputPipe = Pipe()
         let output = outputPipe.fileHandleForReading
