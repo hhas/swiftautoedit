@@ -70,6 +70,15 @@ Also:
 
 ## TO DO
 
+* dictionary viewer isn't automatically switching between tab views;
+  need to fix this so that, at minimum, it displays Suites and Search
+  tabs correctly (the Inheritance and Containment tabs are far less
+  useful as they don't work correctly anyway, and even if they did
+  the UI is really weak; e.g. compare Script Debugger's UI)
+
+* bugs in dictionary viewer and translation doc prevent previously
+  opened files being reopened after being closed
+
 * integrated glue framework generation + installation (using aeglue);
   this might be provided via File menu and/or as "create glue" option 
   on dictionary viewer

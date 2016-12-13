@@ -15,6 +15,7 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <userDefaultsController representsSharedInstance="YES" id="HRC-1O-RlQ"/>
         <window title="Translate AppleScript Commands" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -38,14 +39,14 @@
                         <rect key="frame" x="-1" y="20" width="502" height="173"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <clipView key="contentView" copiesOnScroll="NO" id="So2-FB-VEh">
-                            <rect key="frame" x="1" y="1" width="485" height="171"/>
+                            <rect key="frame" x="1" y="1" width="500" height="171"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" allowsUndo="YES" allowsNonContiguousLayout="YES" spellingCorrection="YES" id="pzG-Cs-6D4">
-                                    <rect key="frame" x="0.0" y="0.0" width="515" height="171"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="530" height="171"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="485" height="171"/>
+                                    <size key="minSize" width="500" height="171"/>
                                     <size key="maxSize" width="821" height="10000000"/>
                                     <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </textView>
@@ -57,7 +58,7 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="T8i-DY-xQN">
-                            <rect key="frame" x="486" y="1" width="15" height="171"/>
+                            <rect key="frame" x="485" y="1" width="16" height="171"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
@@ -85,16 +86,23 @@
                         <rect key="frame" x="-1" y="337" width="502" height="132"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" id="F6Q-b0-PhI">
-                            <rect key="frame" x="1" y="1" width="485" height="130"/>
+                            <rect key="frame" x="1" y="1" width="500" height="130"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <textView importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="HDJ-Se-Z9K">
-                                    <rect key="frame" x="0.0" y="0.0" width="515" height="130"/>
+                                <textView importsGraphics="NO" richText="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="HDJ-Se-Z9K">
+                                    <rect key="frame" x="0.0" y="0.0" width="530" height="130"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="485" height="130"/>
+                                    <size key="minSize" width="500" height="130"/>
                                     <size key="maxSize" width="780" height="10000000"/>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <connections>
+                                        <binding destination="-2" name="attributedString" keyPath="self.code" id="hKY-na-6G4">
+                                            <dictionary key="options">
+                                                <bool key="NSContinuouslyUpdatesValue" value="YES"/>
+                                            </dictionary>
+                                        </binding>
+                                    </connections>
                                 </textView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -104,7 +112,7 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="O16-Sx-yQp">
-                            <rect key="frame" x="486" y="1" width="15" height="130"/>
+                            <rect key="frame" x="485" y="1" width="16" height="130"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
@@ -112,14 +120,14 @@
                         <rect key="frame" x="-1" y="224" width="502" height="105"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" id="TdW-FM-jCL">
-                            <rect key="frame" x="1" y="1" width="485" height="103"/>
+                            <rect key="frame" x="1" y="1" width="500" height="103"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textView editable="NO" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="ioR-2D-t0m">
-                                    <rect key="frame" x="0.0" y="0.0" width="515" height="103"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="530" height="103"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="485" height="103"/>
+                                    <size key="minSize" width="500" height="103"/>
                                     <size key="maxSize" width="780" height="10000000"/>
                                     <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                 </textView>
@@ -131,7 +139,7 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="nPa-9J-cUb">
-                            <rect key="frame" x="486" y="1" width="15" height="103"/>
+                            <rect key="frame" x="485" y="1" width="16" height="103"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
@@ -163,6 +171,10 @@
                         <buttonCell key="cell" type="push" title="Run" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="EOa-Xz-pfW">
                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                            <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                         </buttonCell>
                         <connections>
                             <action selector="runAppleScript:" target="-2" id="jYO-f2-zzx"/>
@@ -170,8 +182,10 @@
                     </button>
                 </subviews>
             </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="SG4-bW-KXc"/>
+            </connections>
             <point key="canvasLocation" x="268" y="164"/>
         </window>
-        <userDefaultsController representsSharedInstance="YES" id="HRC-1O-RlQ"/>
     </objects>
 </document>

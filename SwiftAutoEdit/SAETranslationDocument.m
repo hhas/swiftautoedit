@@ -4,11 +4,13 @@
 //
 //
 
+// TO DO: once rewritten in Swift, might consider attaching SwiftSyntaxHighlighter to the log view
+
 #import "SAETranslationDocument.h"
 
 @implementation SAETranslationDocument
 
-@synthesize formatter;
+@synthesize formatter, code;
 
 - (BOOL)useSDEF {
     return [NSUserDefaults.standardUserDefaults boolForKey: @"UseSDEFTerminology"];
@@ -26,27 +28,52 @@
         [view setAutomaticSpellingCorrectionEnabled:NO];
         [view setAutomaticTextReplacementEnabled:NO];
     }
-    [self.inputView.textStorage.mutableString setString: @"tell app \"textedit\" to get documents"]; // TO DO: should restore previous
     languageInstance = [[SAELanguageInstance alloc] initWithLanguage: [OSALanguage languageForName: @"AppleScript"]];
     formatter = [[SAEEventSniffer alloc] initWithDocument: self];
     [languageInstance setEventSniffer: formatter];
 }
 
+- (void) windowWillClose:(NSNotification *)notification {
+    [NSDocumentController.sharedDocumentController removeDocument: self];
+}
 
+//
 
-// TO DO: read+write
+- (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError {
+    if (outError) *outError = nil;
+    NSString *source = [[NSString alloc] initWithData: data encoding: NSUTF8StringEncoding];
+    if (!source) {
+        if (outError) *outError = [NSError errorWithDomain: NSCocoaErrorDomain code:1 userInfo: @{NSLocalizedDescriptionKey:
+                                   @"Can't read .applescript file as it doesn't contain valid UTF8-encoded text."}];
+        return NO;
+    }
+    // note: file's location is ignored here, but that shouldn't be an issue in practice
+    OSAScript *script = [[OSAScript alloc] initWithSource: source fromURL: nil languageInstance: languageInstance usingStorageOptions: 0];
+    BOOL success = [script compileAndReturnError: nil];
+    self.code = success ? script.richTextSource : [[NSAttributedString alloc] initWithString: source];
+    return YES;
+}
 
+- (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError {
+    if (outError) *outError = nil;
+    NSData *data = [self.code.string dataUsingEncoding: NSUTF8StringEncoding];
+    if (!data && outError) *outError = [NSError errorWithDomain: NSCocoaErrorDomain code:1 userInfo: @{NSLocalizedDescriptionKey:
+                                        @"Can't write .applescript file as it doesn't contain valid UTF8-encoded text."}];
+    return data;
+}
 
+//
 
 - (IBAction)runAppleScript:(id)sender {
     [self clearView:self.outputView];
-    NSString *source = [self.inputView.textStorage.mutableString copy];
-    OSAScript *script = [[OSAScript alloc] initWithSource: source fromURL: nil languageInstance: languageInstance usingStorageOptions: 0];
+    OSAScript *script = [[OSAScript alloc] initWithSource: self.code.string fromURL: nil languageInstance: languageInstance usingStorageOptions: 0];
     NSAttributedString *scriptResult = nil;
     NSDictionary *errorInfo = nil;
     NSError *error = nil;
     // note: execute... returns fully qualified objspecs
-    if (!([script compileAndReturnError: &errorInfo] && [script executeAndReturnDisplayValue: &scriptResult error: &errorInfo])) {
+    BOOL success = [script compileAndReturnError: &errorInfo];
+    if (success) self.code = script.richTextSource;
+    if (!(success && [script executeAndReturnDisplayValue: &scriptResult error: &errorInfo])) {
         error = [NSError errorWithDomain: NSOSStatusErrorDomain code: ([errorInfo[OSAScriptErrorNumber] intValue] ?: 1)
                                 userInfo: @{NSLocalizedDescriptionKey: errorInfo[OSAScriptErrorMessage] ?: @"Couldn't compile script."}];
     }

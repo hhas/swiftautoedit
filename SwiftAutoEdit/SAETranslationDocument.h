@@ -23,6 +23,14 @@
 
 @property (readonly) SAEEventSniffer *formatter;
 
+@property NSAttributedString *code;
+
+
+- (BOOL)readFromData:(NSData *)data ofType:(NSString *)typeName error:(NSError **)outError;
+
+- (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError;
+
+
 -(IBAction)runAppleScript:(id)sender;
 
 -(void)logAppleEvent:(NSString *)desc;

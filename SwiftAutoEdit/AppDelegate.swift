@@ -20,7 +20,7 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     let automationFrameworkPath = "/Library/Frameworks/SwiftAutomation.framework"
-    
+        
     var automationFramework: Bundle { // used to locate current installed aeglue + SA docs, or fall back to embedded version if not found
         if let bundle = Bundle(path: self.automationFrameworkPath) {
             return bundle
