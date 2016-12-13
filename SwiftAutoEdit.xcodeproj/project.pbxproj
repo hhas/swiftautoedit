@@ -32,6 +32,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4F320D8B1E0044B20005F54C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4F698E491DF78CEA0088A726 /* SwiftAE.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4FFF5D231D899F0D008ED4F5;
+			remoteInfo = SwiftAutomation;
+		};
+		4F320D911E0044BF0005F54C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4F698E491DF78CEA0088A726 /* SwiftAE.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F1A57F91D9E81C300ACFA51;
+			remoteInfo = MacOSGlues;
+		};
 		4F698E511DF78CEA0088A726 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4F698E491DF78CEA0088A726 /* SwiftAE.xcodeproj */;
@@ -251,6 +265,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				4F320D921E0044BF0005F54C /* PBXTargetDependency */,
+				4F320D8C1E0044B20005F54C /* PBXTargetDependency */,
 			);
 			name = SwiftAutoEdit;
 			productName = SwiftScript;
@@ -362,6 +378,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4F320D8C1E0044B20005F54C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftAutomation;
+			targetProxy = 4F320D8B1E0044B20005F54C /* PBXContainerItemProxy */;
+		};
+		4F320D921E0044BF0005F54C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MacOSGlues;
+			targetProxy = 4F320D911E0044BF0005F54C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4F0FD4611DF5AE5F00F306D3 /* SwiftDocument.xib */ = {
