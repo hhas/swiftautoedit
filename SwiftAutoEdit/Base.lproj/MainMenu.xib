@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16A323" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -278,13 +278,13 @@ Gw
                     <modifierMask key="keyEquivalentModifierMask"/>
                     <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                         <items>
-                            <menuItem title="SwiftAutomation Help" keyEquivalent="/" id="PcR-fG-t6e">
+                            <menuItem title="SwiftAutomation User Guide" keyEquivalent="/" id="PcR-fG-t6e">
                                 <connections>
                                     <action selector="openAutomationHelp:" target="-1" id="0Kw-WV-hPC"/>
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="BpF-ct-Ffg"/>
-                            <menuItem title="SwiftAutoEdit Help" keyEquivalent="/" id="FKE-Sm-Kum">
+                            <menuItem title="About This Editor" keyEquivalent="/" id="FKE-Sm-Kum">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="openHelp:" target="-1" id="EsE-LB-Y82"/>

@@ -10,6 +10,8 @@
             <div id="main">
                 <h1>SwiftAutoEdit</h1>
 
+<!-- TO DO: need to remind users to read SA docs -->
+
 <h2>About</h2>
 
 <p>A quick-n-dirty Swift micro-editor for <a href="https://hhas.bitbucket.io">SwiftAutomation</a> users.</p>
@@ -50,19 +52,21 @@
 
 <p>Choose File ➝ New Translator (Cmd+Shift+N) to create a new AppleScript-to-Swift command translation window. To convert an application command from AppleScript to SwiftAutomation syntax, type the AppleScript command into the top pane and click Run (Cmd+Return). Any Apple events sent by the AppleScript are logged in the bottom pane using Swift syntax. For example, running:</p>
 
-<pre><code>tell application "TextEdit" to get text of every document</code></pre>
+<!-- TO DO: may be better to move this example to SA docs -->
+
+<pre><code>tell application "TextEdit" to get text of document 1</code></pre>
 
 <p>logs the outgoing Apple event as:</p>
 
-<pre><code>try TextEdit(name: "/Applications/TextEdit.app").documents.text.get()</code></pre>
+<pre><code>try TextEdit(name: "/Applications/TextEdit.app").documents[1].text.get()</code></pre>
 
 <p>which you can then adapt for use in your own code:</p>
 
 <pre><code>let textedit = TextEdit()
 
-let docTexts = try textedit.documents.text.get() as [String]
+let docText = try textedit.documents[1].text.get() as String
 
-print(docTexts)</code></pre>
+print(docText)</code></pre>
 
 
 <p>If the Send Apple Events checkbox is enabled, the Apple event will be dispatched to the target application as normal and the return value, if any, displayed in the middle and bottom middle panes in AppleScript and Swift syntax respectively. Uncheck the Send Apple Events checkbox to translate potentially destructive commands (e.g. <code>delete</code>) without affecting the target application.</p>
