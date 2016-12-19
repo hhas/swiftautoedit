@@ -4,8 +4,6 @@
 //
 //
 
-// TO DO: once rewritten in Swift, might consider attaching SwiftSyntaxHighlighter to the log view
-
 #import "SAETranslationDocument.h"
 
 @implementation SAETranslationDocument
@@ -31,6 +29,8 @@
     languageInstance = [[SAELanguageInstance alloc] initWithLanguage: [OSALanguage languageForName: @"AppleScript"]];
     formatter = [[SAEEventSniffer alloc] initWithDocument: self];
     [languageInstance setEventSniffer: formatter];
+    
+    // show info/warning sheet on first use
 }
 
 - (void) windowWillClose:(NSNotification *)notification {

@@ -71,7 +71,7 @@ class SwiftDocument: NSDocument {
     }
     
     func appendToResult(string: String) {
-        self.result = "\(self.result)\(string)\n" as NSString
+        self.result = "\(self.result)\(string)" as NSString
     }
     
     @IBAction func killSwiftProcess(_ sender: Any) {

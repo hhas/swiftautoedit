@@ -4,6 +4,9 @@
 //
 //
 
+// TO DO: display warning sheet on first use, cautioning user this is an AE sniffer, not code translator, so be careful when running potentially destructive scripts
+
+
 // TO DO: file read+write (Q. how to prevent user accidentally saving over production scripts while experimenting with translations?)
 
 #import <Cocoa/Cocoa.h>
