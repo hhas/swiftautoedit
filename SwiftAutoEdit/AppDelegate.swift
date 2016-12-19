@@ -4,6 +4,8 @@
 //
 //
 
+// TO DO: add quick lookup for MacOSGlues dictionaries (in Help menu?)
+
 // TO DO: how practical to fall back to using embedded SA framework if user hasn't installed their own in /Library/Frameworks?
 
 // TO DO: integrate aeglue generation (e.g. see ASDictionary's ObjC glue generator for comparison); note: this needs to use user's installed SA framework (or fall back to embedded SA if not found?); don't call SA APIs directly as there's no guarantee embedded SA will produce same glues as newer installed version

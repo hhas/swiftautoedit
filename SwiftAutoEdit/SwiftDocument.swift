@@ -8,6 +8,10 @@
 
 // TO DO: how best to insert default import statements when creating new scripts?
 
+// TO DO: option to include individual glue files? (these would be passed as additional args to swift; Q. is there any way for a !# to resolve paths relative to script being run? problem is script portability)
+
+// TO DO: what about building as executable? (currently ~11MB a pop, so not exactly lightweight, but portable)
+
 
 import Cocoa
 
@@ -103,7 +107,7 @@ class SwiftDocument: NSDocument {
         task.standardError = outputPipe
         
         task.terminationHandler = {(task: Process) -> () in
-            self.performSelector(onMainThread: #selector(SwiftDocument.appendToResult), with: "Exit status: \(task.terminationStatus)", waitUntilDone: false)
+            self.performSelector(onMainThread: #selector(SwiftDocument.appendToResult), with: "\nExit status: \(task.terminationStatus)", waitUntilDone: false)
             self.scriptTask = nil
         }
         task.launch()
